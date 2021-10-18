@@ -3,6 +3,7 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
   updateProfile,
@@ -42,6 +43,7 @@ const useFirebase = () => {
           updateProfile(auth.currentUser, {
             displayName: name,
           });
+
           setError("");
         })
         .catch((error) => {
@@ -49,8 +51,22 @@ const useFirebase = () => {
         });
     }
   };
-
   const auth = getAuth();
+
+  const emailSignIn = () => {
+    setIsLoading(true);
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((results) => {
+        const user = results.user;
+        console.log(user);
+        setUser(user);
+        setError("");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
   const googleSignIn = () => {
     setIsLoading(true);
     const googleProvider = new GoogleAuthProvider();
@@ -86,6 +102,7 @@ const useFirebase = () => {
     name,
     error,
     googleSignIn,
+    emailSignIn,
     logOut,
     handleSignUpName,
     handleSignUpEmail,
