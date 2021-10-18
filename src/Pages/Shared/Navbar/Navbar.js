@@ -4,15 +4,22 @@ import useAuth from "../../../contexts/useAuth";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  console.log(user);
   return (
     <div>
       <Link to="/home">Home</Link>
-      <Link to="/login">Login</Link>
       <Link to="/about">About</Link>
       <Link to="/Logout">Home</Link>
-      <button onClick={logOut}>Logout</button>
-
-      <p>{user?.email}</p>
+      {user.email ? (
+        <>
+          <span>{user?.displayName}</span>{" "}
+          <button onClick={logOut}>Logout</button>{" "}
+        </>
+      ) : (
+        <>
+          <Link to="/login">Login</Link> <Link to="/signup">Signup</Link>{" "}
+        </>
+      )}
     </div>
   );
 };

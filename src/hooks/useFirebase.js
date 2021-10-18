@@ -1,21 +1,56 @@
 import {
+  createUserWithEmailAndPassword,
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
-import initializeAuthentication from "../Pages/Login/Firebase/firebase.init";
+import initializeAuthentication from "../Pages/UserAuthorize/Firebase/firebase.init";
 
 initializeAuthentication();
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSignUpName = (e) => {
+    setName(e.target.value);
+  };
+  const handleSignUpEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const handleSignUpPassword = (e) => {
+    setPassword(e.target.value);
+  };
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return;
+    } else {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((results) => {
+          const userEmailPass = results.user;
+          setUser(userEmailPass);
+          updateProfile(auth.currentUser, {
+            displayName: name,
+          });
+          setError("");
+        })
+        .catch((error) => {
+          setError(error.message);
+        });
+    }
+  };
 
   const auth = getAuth();
-
   const googleSignIn = () => {
     setIsLoading(true);
     const googleProvider = new GoogleAuthProvider();
@@ -46,8 +81,16 @@ const useFirebase = () => {
   return {
     user,
     isLoading,
+    email,
+    password,
+    name,
+    error,
     googleSignIn,
     logOut,
+    handleSignUpName,
+    handleSignUpEmail,
+    handleSignUpPassword,
+    handleSignUp,
   };
 };
 export default useFirebase;
