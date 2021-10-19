@@ -4,51 +4,44 @@ import useAuth from "../../../contexts/useAuth";
 const Navbar = () => {
   const { user, logOut } = useAuth();
   return (
-    <nav
-      className="navbar sticky-top navbar-expand-lg bg-light d-flex justify-content-between"
-      style={{ backgroundColor: "rgb(34, 34, 34)", height: "70px" }}
-    >
+    <nav className="sticky-top navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <nav className="navbar-brand" to="/">
-          <span className="fw-bold">Floral Care Hospital</span>
-        </nav>
-        <div className="navbar fw-bold" id="navbarNav">
-          <ul className="navbar-nav">
+        <NavLink className="navbar-brand fs-1 fw-bold text-primary" to="/">
+          Floral Care
+        </NavLink>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink
-                aria-current="page"
-                className="nav-link active active"
-                to="/"
-              >
+              <NavLink aria-current="page" className="nav-link active" to="/">
                 Home
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/services">
+              <NavLink className="nav-link" to="/booking/:serviceId">
                 Booking
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/departments">
-                Departments
+              <NavLink className="nav-link" to="/research">
+                Research
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/about">
                 About
               </NavLink>
-              {/* {user.email ? (
-                <span>
-                  {user?.displayName} <button onClick={logOut}>Logout</button>{" "}
-                </span>
-              ) : (
-                <span>
-                  <NavLink to="/login">Login</NavLink>{" "}
-                  <NavLink to="/signup">Signup</NavLink>{" "}
-                </span>
-              )} */}
             </li>
-
             {user?.email ? (
               <>
                 <li className="nav-item">

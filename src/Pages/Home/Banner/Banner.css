@@ -3,12 +3,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
-  height: 550px;
 }
 .hero-bg h1 {
   font-size: 65px;
-  margin-bottom: -80px;
-}
-.hero-bg span {
-  margin-top: -65px;
 }

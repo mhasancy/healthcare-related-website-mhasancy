@@ -21,24 +21,6 @@ const useFirebase = () => {
   const [nameData, setNameData] = useState("");
   const [error, setError] = useState("");
 
-  // const handleEmailSignUp = () => {
-  //   // setIsLoading(true);
-  //   createUserWithEmailAndPassword(auth, emailData, passwordData)
-  //     .then((results) => {
-  //       const userEmailPass = results.user;
-  //       setUser(userEmailPass);
-  //       updateProfile(auth.currentUser, {
-  //         displayName: nameData,
-  //       });
-  //       // setIsLoading(false);
-
-  //       setError("");
-  //     })
-  //     .catch((error) => {
-  //       setError(error.message);
-  //     });
-  // };
-
   const emailSignIn = (e, email, password) => {
     setIsLoading(true);
     e.preventDefault();

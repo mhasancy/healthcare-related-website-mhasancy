@@ -4,7 +4,8 @@ import AuthProvider from "./contexts/AuthProvider";
 import About from "./Pages/About/About";
 import Booking from "./Pages/Booking/Booking";
 import Home from "./Pages/Home/Home/Home";
-import Services from "./Pages/Home/Services/Services";
+import NotFound from "./Pages/NotFound/NotFound";
+import Research from "./Pages/Research/Research";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
 import Login from "./Pages/UserAuthorize/Login/Login";
@@ -24,21 +25,24 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/services">
-              <Services></Services>
+            <PrivateRoute path="/booking/:serviceId">
+              <Booking></Booking>
+            </PrivateRoute>
+            <Route path="/research">
+              <Research></Research>
+            </Route>
+            <Route path="/about">
+              <About></About>
             </Route>
             <Route path="/login">
               <Login></Login>
             </Route>
-            <Route path="/booking/:serviceId">
-              <Booking></Booking>
-            </Route>
             <Route path="/signup">
               <SignUp></SignUp>
             </Route>
-            <PrivateRoute path="/about">
-              <About></About>
-            </PrivateRoute>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
           </Switch>
           <Footer></Footer>
         </Router>

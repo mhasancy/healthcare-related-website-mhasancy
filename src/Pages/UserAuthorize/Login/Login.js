@@ -7,18 +7,7 @@ import useAuth from "../../../contexts/useAuth";
 
 const Login = () => {
   const auth = getAuth();
-  const {
-    processLogin,
-    googleSignIn,
-    handleEmailChange,
-    handlePasswordChange,
-    handleEmailSignUp,
-    emailSignIn,
-    error,
-    setUser,
-    setError,
-    setIsLoading,
-  } = useAuth();
+  const { googleSignIn, setUser, setError, setIsLoading } = useAuth();
   const location = useLocation();
   const history = useHistory();
   const redirectUrl = location.state?.from || "/";
@@ -53,22 +42,46 @@ const Login = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmitData)}>
-        <input type="email" {...register("email", { required: true })} />
-        <br />
-        {errors.email && <span>Email field is required</span>}
-        <br />
-        <input type="password" {...register("password", { required: true })} />
-        <br />
-        {errors.password && <span>Password field is required</span>}
-        <br />
-        <input type="submit" value="Sign Up" /> <br /> <br />
+    <div className="container w-md-50">
+      <h1 className="fw-bold text-center ms-md-4 p-md-2 mx-auto my-5">
+        Please
+        <span className="text-primary"> Login</span>.
+      </h1>
+      <form className="form my-3" onSubmit={handleSubmit(onSubmitData)}>
+        <input
+          placeholder="Your Email"
+          className="form-control my-2"
+          type="email"
+          {...register("email", { required: true })}
+        />
+        {errors.email && (
+          <p className="text-primary pt-1">Email field is required</p>
+        )}
+        <input
+          placeholder="Your Password"
+          className="form-control my-2"
+          type="password"
+          {...register("password", { required: true })}
+        />
+        {errors.password && (
+          <p className="text-primary pt-1">Password field is required</p>
+        )}
+        <span>
+          <input
+            className="form-control btn btn-primary"
+            type="submit"
+            value="Login"
+          />
+        </span>
       </form>
-      <button onClick={handleLogin}>Google Login</button>
+      <button className="btn btn-secondary" onClick={handleLogin}>
+        <i className="fab fa-google"></i> Login with Google
+      </button>
       <br />
-      <Link to="/login">Already Registered</Link>
-    </>
+      <Link className="btn btn-secondary my-2" to="/signup">
+        New to Site?
+      </Link>
+    </div>
   );
 };
 
