@@ -40,12 +40,12 @@ const Footer = () => {
           <h1 className="fw-bold fs-2 text-start ms-3 ps-4">Contact</h1>
           <br />
           <h3 className="fw-normal fs-6 text-left ms-4 ps-3 lh-base w-75">
-            23/2, Concord Tower, <br />
-            Banani, Dhaka Bangladesh. <br />
+            23/2, Aston Villa, <br />
+            England. <br />
             <br />
-            Tel: +88 01234 567890 <br /> Fax: +88 025 7689 <br />
+            Tel: +44 01234 567890 <br /> Fax: +44 025 7689 <br />
             <br />
-            Email: florralcare@ac.bd
+            Email: floralcare@ac.eng
             <br />
             visit:{" "}
             <a
@@ -54,7 +54,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              www.florralcare.ac.bd
+              www.floralcare.ac.eng
             </a>
           </h3>
         </div>
