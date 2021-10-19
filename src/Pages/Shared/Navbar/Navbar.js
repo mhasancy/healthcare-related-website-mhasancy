@@ -49,11 +49,11 @@ const Navbar = () => {
               )} */}
             </li>
 
-            {user.email ? (
+            {user?.email ? (
               <>
                 <li className="nav-item">
                   <NavLink to="" className="nav-link">
-                    {user.displayName}
+                    {user?.displayName}
                   </NavLink>
                 </li>
                 <li className="nav-item">
@@ -70,7 +70,7 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="/signin" className="nav-link">
+                  <NavLink to="/signup" className="nav-link">
                     Sign up
                   </NavLink>
                 </li>

@@ -1,12 +1,10 @@
 import {
-  createUserWithEmailAndPassword,
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  updateProfile,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Pages/UserAuthorize/Firebase/firebase.init";
@@ -14,47 +12,37 @@ import initializeAuthentication from "../Pages/UserAuthorize/Firebase/firebase.i
 initializeAuthentication();
 
 const useFirebase = () => {
-  const [user, setUser] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [error, setError] = useState("");
-
-  const handleSignUpName = (e) => {
-    setName(e.target.value);
-  };
-  const handleSignUpEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  const handleSignUpPassword = (e) => {
-    setPassword(e.target.value);
-  };
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    if (password.length < 6) {
-      setError("Password must be at least 6 characters");
-      return;
-    } else {
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((results) => {
-          const userEmailPass = results.user;
-          setUser(userEmailPass);
-          updateProfile(auth.currentUser, {
-            displayName: name,
-          });
-
-          setError("");
-        })
-        .catch((error) => {
-          setError(error.message);
-        });
-    }
-  };
   const auth = getAuth();
 
-  const emailSignIn = () => {
+  const [user, setUser] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [emailData, setEmailData] = useState("");
+  const [passwordData, setPasswordData] = useState("");
+  const [nameData, setNameData] = useState("");
+  const [error, setError] = useState("");
+  console.log(user);
+
+  // const handleEmailSignUp = () => {
+  //   // setIsLoading(true);
+  //   createUserWithEmailAndPassword(auth, emailData, passwordData)
+  //     .then((results) => {
+  //       const userEmailPass = results.user;
+  //       setUser(userEmailPass);
+  //       updateProfile(auth.currentUser, {
+  //         displayName: nameData,
+  //       });
+  //       // setIsLoading(false);
+
+  //       setError("");
+  //     })
+  //     .catch((error) => {
+  //       setError(error.message);
+  //     });
+  // };
+
+  const emailSignIn = (e, email, password) => {
     setIsLoading(true);
+    e.preventDefault();
 
     signInWithEmailAndPassword(auth, email, password)
       .then((results) => {
@@ -63,8 +51,10 @@ const useFirebase = () => {
         setUser(user);
         setError("");
       })
+
       .catch((error) => {
         setError(error.message);
+        setIsLoading(false);
       });
   };
   const googleSignIn = () => {
@@ -73,6 +63,24 @@ const useFirebase = () => {
     return signInWithPopup(auth, googleProvider).finally(() =>
       setIsLoading(false)
     );
+  };
+  const processLogin = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setError("");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
+  const logOut = () => {
+    setIsLoading(true);
+    signOut(auth)
+      .then(() => {})
+      .finally(() => setIsLoading(false));
   };
 
   useEffect(() => {
@@ -85,29 +93,20 @@ const useFirebase = () => {
       setIsLoading(false);
     });
     return () => unsubscribed;
-  }, []);
-
-  const logOut = () => {
-    setIsLoading(true);
-    signOut(auth)
-      .then(() => {})
-      .finally(() => setIsLoading(false));
-  };
-
+  }, [auth]);
   return {
     user,
-    isLoading,
-    email,
-    password,
-    name,
+    setIsLoading,
+    setEmailData,
+    setPasswordData,
+    setNameData,
+    setUser,
     error,
+    setError,
     googleSignIn,
     emailSignIn,
     logOut,
-    handleSignUpName,
-    handleSignUpEmail,
-    handleSignUpPassword,
-    handleSignUp,
+    processLogin,
   };
 };
 export default useFirebase;
