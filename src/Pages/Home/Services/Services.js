@@ -1,9 +1,13 @@
+//imported file
 import React, { useEffect, useState } from "react";
 import Service from "../Service/Service";
 
+//services component
 const Services = () => {
+  //data set
   const [servicesData, setServicesData] = useState([]);
 
+  //data load
   useEffect(() => {
     fetch(
       "https://raw.githubusercontent.com/mhasancy/test/main/serviceData.json"

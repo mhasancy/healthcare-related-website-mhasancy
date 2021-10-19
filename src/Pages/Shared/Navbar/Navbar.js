@@ -1,8 +1,12 @@
+//imported file
 import React from "react";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../../contexts/useAuth";
+//navbar component
 const Navbar = () => {
+  //destructuring
   const { user, logOut } = useAuth();
+
   return (
     <nav className="sticky-top navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">

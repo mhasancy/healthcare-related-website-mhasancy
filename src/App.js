@@ -1,3 +1,4 @@
+//imported file
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./contexts/AuthProvider";

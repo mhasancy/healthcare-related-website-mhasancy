@@ -1,5 +1,7 @@
+//imported file
 import React from "react";
 
+//about component
 const About = () => {
   return (
     <div className="container">

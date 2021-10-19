@@ -1,3 +1,4 @@
+//imported file
 import { getAuth, signInWithEmailAndPassword } from "@firebase/auth";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -5,14 +6,18 @@ import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import useAuth from "../../../contexts/useAuth";
 
+//log in component
 const Login = () => {
+  //auth context
   const auth = getAuth();
+  //destructuring
   const { googleSignIn, setUser, setError, setIsLoading } = useAuth();
+  //redirectUrl
   const location = useLocation();
   const history = useHistory();
   const redirectUrl = location.state?.from || "/";
 
-  const handleLogin = () => {
+  const handleGoogleLogin = () => {
     googleSignIn().then((results) => {
       history.push(redirectUrl);
     });
@@ -74,7 +79,7 @@ const Login = () => {
           />
         </span>
       </form>
-      <button className="btn btn-secondary" onClick={handleLogin}>
+      <button className="btn btn-secondary" onClick={handleGoogleLogin}>
         <i className="fab fa-google"></i> Login with Google
       </button>
       <br />

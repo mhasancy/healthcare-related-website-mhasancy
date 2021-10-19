@@ -1,11 +1,14 @@
+//imported file
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
+//booking component
 const Booking = () => {
+  //dynamic route data set
   const { serviceId } = useParams();
   const [servicesData, setServicesData] = useState([]);
-
+  //dynamic route data load
   useEffect(() => {
     fetch(
       "https://raw.githubusercontent.com/mhasancy/test/main/serviceData.json"
@@ -13,6 +16,7 @@ const Booking = () => {
       .then((res) => res.json())
       .then((data) => setServicesData(data));
   }, [serviceId]);
+  //adding matchedService data
   const matchedService = servicesData?.find(
     (serviceData) => serviceData?.id === serviceId
   );

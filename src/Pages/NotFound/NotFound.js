@@ -1,6 +1,7 @@
 //imported file
 import React from "react";
 import { NavLink } from "react-router-dom";
+
 //404 component
 const NotFound = () => {
   return (

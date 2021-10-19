@@ -1,19 +1,22 @@
+//imported file
 import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
-  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Pages/UserAuthorize/Firebase/firebase.init";
+//firebase initialization
 
 initializeAuthentication();
 
+//useFirebase hooks
+
 const useFirebase = () => {
   const auth = getAuth();
-
+  //states
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [emailData, setEmailData] = useState("");
@@ -21,39 +24,12 @@ const useFirebase = () => {
   const [nameData, setNameData] = useState("");
   const [error, setError] = useState("");
 
-  const emailSignIn = (e, email, password) => {
-    setIsLoading(true);
-    e.preventDefault();
-
-    signInWithEmailAndPassword(auth, email, password)
-      .then((results) => {
-        const user = results.user;
-        setUser(user);
-        setError("");
-      })
-
-      .catch((error) => {
-        setError(error.message);
-        setIsLoading(false);
-      });
-  };
-
   const googleSignIn = () => {
     setIsLoading(true);
     const googleProvider = new GoogleAuthProvider();
     return signInWithPopup(auth, googleProvider).finally(() =>
       setIsLoading(false)
     );
-  };
-  const processLogin = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        const user = result.user;
-        setError("");
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
   };
 
   const logOut = () => {
@@ -75,6 +51,10 @@ const useFirebase = () => {
     return () => unsubscribed;
   }, [auth]);
   return {
+    emailData,
+    nameData,
+    passwordData,
+    isLoading,
     user,
     setIsLoading,
     setEmailData,
@@ -84,9 +64,7 @@ const useFirebase = () => {
     error,
     setError,
     googleSignIn,
-    emailSignIn,
     logOut,
-    processLogin,
   };
 };
 export default useFirebase;

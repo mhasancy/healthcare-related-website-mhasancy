@@ -1,7 +1,10 @@
+//imported file
 import React from "react";
 import { Link } from "react-router-dom";
 
+//service component
 const Service = ({ serviceData }) => {
+  //destructuring
   const { id, title, intro, image } = serviceData;
   return (
     <div className="col container">

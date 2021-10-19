@@ -1,5 +1,8 @@
+//imported file
 import React from "react";
 import "./Banner.css";
+
+//banner component
 const Banner = () => {
   return (
     <div className="mx-auto row img-fluid hero-bg text-start align-items-center container-fluid ps-md-5">

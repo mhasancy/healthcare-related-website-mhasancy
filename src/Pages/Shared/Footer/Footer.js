@@ -1,6 +1,9 @@
+//imported file
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Footer.css";
+
+//footer component
 const Footer = () => {
   return (
     <div className="container-fluid img-fluid footer-bg row row-cols-1 g-4 btn-yellow text-dark mt-5  py-5 text-start">
