@@ -27,6 +27,8 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  //use hook form
   const onSubmitData = (inputData) => {
     const { email, password } = inputData;
     signInWithEmailAndPassword(auth, email, password)
@@ -37,7 +39,6 @@ const Login = () => {
         setIsLoading(true);
         const userData = results.user;
         setUser(userData);
-        // setIsLoading(false);
         setIsLoading(false);
         setError("");
       })
