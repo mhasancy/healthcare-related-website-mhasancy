@@ -37,10 +37,12 @@ const Login = () => {
     const { email, password } = inputData;
     signInWithEmailAndPassword(auth, email, password)
       .then((results) => {
+        history.push(redirectUrl);
+      })
+      .then((results) => {
         setIsLoading(true);
         const userData = results.user;
         setUser(userData);
-        console.log(userData);
         // setIsLoading(false);
         setIsLoading(false);
         setError("");
@@ -49,10 +51,6 @@ const Login = () => {
         setError(error.message);
       });
   };
-
-  // const getData = (e) => {
-  //   console.log(e.target.value);
-  // };
 
   return (
     <>

@@ -2,7 +2,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./contexts/AuthProvider";
 import About from "./Pages/About/About";
+import Booking from "./Pages/Booking/Booking";
 import Home from "./Pages/Home/Home/Home";
+import Services from "./Pages/Home/Services/Services";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
 import Login from "./Pages/UserAuthorize/Login/Login";
@@ -22,11 +24,14 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/userauthorize">
-              <Login></Login>
+            <Route path="/services">
+              <Services></Services>
             </Route>
             <Route path="/login">
               <Login></Login>
+            </Route>
+            <Route path="/booking/:serviceId">
+              <Booking></Booking>
             </Route>
             <Route path="/signup">
               <SignUp></SignUp>

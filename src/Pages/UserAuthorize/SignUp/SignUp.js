@@ -21,6 +21,7 @@ const SignUp = () => {
     setIsLoading,
   } = useAuth();
   const auth = getAuth();
+
   const {
     register,
     handleSubmit,
@@ -36,7 +37,6 @@ const SignUp = () => {
           displayName: name,
         });
         setUser(userData);
-        console.log(userData);
         // setIsLoading(false);
         setIsLoading(false);
         setError("");

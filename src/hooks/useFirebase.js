@@ -20,7 +20,6 @@ const useFirebase = () => {
   const [passwordData, setPasswordData] = useState("");
   const [nameData, setNameData] = useState("");
   const [error, setError] = useState("");
-  console.log(user);
 
   // const handleEmailSignUp = () => {
   //   // setIsLoading(true);
@@ -47,7 +46,6 @@ const useFirebase = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((results) => {
         const user = results.user;
-        console.log(user);
         setUser(user);
         setError("");
       })
@@ -57,6 +55,7 @@ const useFirebase = () => {
         setIsLoading(false);
       });
   };
+
   const googleSignIn = () => {
     setIsLoading(true);
     const googleProvider = new GoogleAuthProvider();
@@ -68,7 +67,6 @@ const useFirebase = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         setError("");
       })
       .catch((error) => {

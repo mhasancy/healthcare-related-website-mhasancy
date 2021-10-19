@@ -1,0 +1,65 @@
+[
+  {
+    "id": "FCHS001",
+    "title": "Nuclear Medicine",
+    "intro": "Diagnostic nuclear medicine, also known as molecular imaging, is a form of medical imaging that uses tiny amounts of radioactive chemicals called radiotracers.",
+    "description": "These are generally injected into the bloodstream, allowing our team of experts to look at where the radio tracers localize in your body, providing information about the function of different cells, tissues and organs. The results of these scans enable doctors to provide an accurate diagnosis of a variety of conditions including cancer. Floral Care has two state-of-the-art SPECT/CT cameras with quantitative capability.At Floral Care, this kind of imaging is separated into two categories – nuclear medicine and positron emission tomography (PET). Both types are usually used in conjunction with a computed tomography (CT) scan to help localize the site of radio tracer accumulation, helping doctors select and plan the best treatment for you. The nuclear medicine department also specializes in radionuclide therapy to treat a variety of cancers.",
+    "image": "https://www.petermac.org/sites/default/files/styles/medium/public/pages/uploads/PTM_387_14778.jpg?itok=YmG1KmIL"
+  },
+  {
+    "id": "FCHS002",
+    "title": "Pathology",
+    "intro": "Pathology is a medical specialty about the study and causes of disease and is integral to the diagnosis of every cancer.",
+    "description": "Pathology is a medical specialty about the study and causes of disease and is integral to the diagnosis of every cancer.        Pathologists can also examine changes in tissue, blood and other bodily fluid samples to gain an understanding of the potential for disease development, the cause or severity of disease and/or to monitor the progress of disease, effectiveness of treatment and your general health.At Peter Mac, the Pathology team uses blood and other tissue samples to help diagnose the tumour type and can also help determine a likely prognosis and inform clinicians about the most appropriate management for a cancer.Peter Mac’s Pathology team operates a 24-hour on-site service which provides biochemistry, haematology, anatomical pathology and diagnostic molecular pathology. If you have had bloods or specimens collected during any sort of procedure, as an inpatient or in our outpatient pathology clinic at Peter Mac, they will go straight to our on-site pathologists for analysis.",
+    "image": "https://www.petermac.org/sites/default/files/styles/medium/public/pages/uploads/Screen%20Shot%202019-09-04%20at%2010.02.51%20am.png?itok=b8_Wl54M"
+  },
+  {
+    "id": "FCHS003",
+    "title": "Bone Marrow Biopsy",
+    "intro": "A bone marrow biopsy is a procedure frequently performed to aid in the diagnosis and staging of many blood conditions.",
+    "description": "A bone marrow biopsy is a procedure frequently performed to aid in the diagnosis and staging of many blood conditions.Your treating doctor will discuss the reasons for this test before arranging this procedure. This procedure is performed as a day case by either a Haematologist or Haematology Registrar. Over 1,000 bone marrow biopsies are performed each year at Peter Mac.TYPES OF BONE MARROW BIOPSIESThe bone marrow biopsy is almost always taken from the back of the pelvis bone where the large bone of the iliac crest is readily and safely accessible. Rarely, there may be a need to do the biopsy from the front (anterior iliac crest), or even the sternum (breast bone).",
+    "image": "https://www.petermac.org/sites/default/files/styles/medium/public/pages/uploads/bone-marrow-aspiration_thumb.jpg?itok=fMq5V1UE"
+  },
+  {
+    "id": "FCHS004",
+    "title": "Cancer Surgery",
+    "intro": "The Division of Cancer Surgery incorporates The Departments of Surgical Oncology, Anaesthesia and Pain Medicine, and The Perioperative Service.",
+    "description": "It provides a comprehensive anaesthetic and surgical service for patients requiring surgery for cancer, excluding neurosurgery and thoracic surgery, which is provided by our VCCC partners at the Royal Melbourne Hospital.Care is delivered through an integrated multidisciplinary approach, utilising purpose built, state of the art infrastructure. This involves new integrated operating theatres, including intraoperative radiotherapy, 2-D and 3-D laparoscopic equipment, and an established Di Vinci Robotic program.Research is one of the 3 pillars of the Division, along with Clinical Care, and Education and Training. Research includes clinical, translational, and basic science research, and is embedded with the clinical program.Education and Training is integral to the philosophy of the Division, and the Division undertakes training for resident, registrars, and fellows, across surgery in general and a range of surgical subspecialties, along with anaesthesia and pain medicine.",
+    "image": "https://www.petermac.org/sites/default/files/styles/medium/public/pages/uploads/featured/090728%20PeterMac-257%20copy.jpg?itok=1k9PdZsv"
+  },
+  {
+    "id": "FCHS005",
+    "title": "Haematological treatments",
+    "intro": "Haematologists at Peter Mac use a range of specialised treatments and treatment plans to treat blood cancers.",
+    "description": "Haematological cancers include various types of blood cancers and related diseases including acute and chronic leukaemias, myelodysplastic syndromes, myeloproliferative disorders, aplastic anaemia, Hodgkin’s and non-Hodgkin’s lymphoma, multiple myeloma and plasma cell disorders.Whilst there are special treatments for haematological diseases, treatment for blood cancers may also include chemotherapy, radiation therapy or surgery.If you are receiving treatment for blood cancer you will be looked after by a treating haematologist who will coordinate your treatment plan, discuss your treatment options and explain your treatments to you. However, you may receive care from a range of different experts",
+    "image": "https://www.petermac.org/sites/default/files/styles/medium/public/pages/uploads/120815_488_.jpg?itok=IDxetO1j"
+  },
+  {
+    "id": "FCHS006",
+    "title": "Medical oncology",
+    "intro": "Peter Mac provides a precinct wide Medical Oncology service.Medical oncologists use medications to care for and treat patients with all types of cancer.",
+    "description": "These medications might be used to:Kill or control cancers Slow cancer growth Treat complications associated with cancer treatmentsMinimise the effects of cancer Control pain and symptoms of cancer and its treatments You may see a Medical Oncologist at Peter Mac for:Chemotherapy Hormone Therapy Immunotherapy    There is no one-size-fits all treatment for cancer and often a patient will have a combination of treatments for the best outcome possible. Your treatment may also include radiation therapy, surgery or haematological treatments.If you areeceiving treatment for cancer you will be looked after by a treating consultant who will coordinate your treatment plan. However,you will receive care from a range of different experts.",
+    "image": "https://www.petermac.org/sites/default/files/styles/medium/public/news/uploads/news_media280515_img.jpg?itok=hoHCDibB"
+  },
+  {
+    "id": "FCHS007",
+    "title": "Pain management",
+    "intro": "Pain experienced is a significant issue for most people with cancer. Not all patients will have pain, but for those who do it can have a huge impact on patients and their loved one.",
+    "description": "CUTE AND PERSISTENT CANCER PAIN There are many cancers and many phases of the disease process (including diagnosis, treatment, palliation and survivorship).The Acute and Persistent Cancer Pain (APCP) team provide evidence based, safe and effective pain management for patients with both current and past cancers. The APCP team are highly skilled in using many different kinds of medicines and non-drug methods that can help relieve pains.The APCP clinic is able to provide holistic, intra-disciplinary management for people in all stages of their cancer journey from diagnosis, through treatment to long term follow up.The APCP at Victorian Comprehensive Cancer Centre is an accredited training facility for the Faculty of Pain Medicine, Australian and New Zealand College of Anaesthetists, the professional organisation for specialist pain medicine physicians (Fellows).",
+    "image": "https://www.petermac.org/sites/default/files/styles/medium/public/pages/uploads/man%20with%20arms%20out.jpg?itok=K6TXBo3a"
+  },
+  {
+    "id": "FCHS008",
+    "title": "Psychosocial Oncology",
+    "intro": "The Psychosocial Oncology Program is a multidisciplinary team of clinical psychologists, social workers, psychiatric consultation-liaison nurses (PCLN) and psychiatrists/psychiatric registrars.",
+    "description": "The Psychosocial Oncology Program is a multidisciplinary team of clinical psychologists, social workers, psychiatric consultation-liaison nurses (PCLN) and psychiatrists/psychiatric registrars.Members of the team assess patients who are at risk of mental health problems and assess and treat those with pre-existing and/or current mental health problems in the context of their cancer.",
+    "image": "https://www.petermac.org/sites/default/files/styles/medium/public/pages/uploads/brain.png?itok=QJ2ksuZA"
+  },
+  {
+    "id": "FCHS009",
+    "title": "Dental Oncology",
+    "intro": "The Dental Oncology Service provides specialised services for patients undergoing treatment, primarily for head and neck, blood, and skin cancers.",
+    "description": "People with these cancers may require the services of a dental oncologist to help manage and minimise discomfort, oral pain, and/or infections associated with treatment. Dental oncologists can also anticipate and prevent future dental concerns.DENTAL ONCOLOGY SERVICESDental oncology provides a number of services to patients, including:assessment of the mouth and teeth before radiation therapy and chemotherapy.preparation of the mouth before radiation herapydiagnostic assessment of lesions inside the mouth    preparation of complex oral devices to aid radiation therapy treatment    management of the mouth and associated structures during and after radiation therapy and chemotherapy    preparation of prostheses, which may be required as a result of surgery, radiation therapy or chemotherapy to the head and neck region.",
+    "image": "https://www.petermac.org/sites/default/files/styles/medium/public/pages/uploads/Screen%20Shot%202019-06-18%20at%209.55.22%20am.png?itok=AMyHDd41"
+  }
+]
