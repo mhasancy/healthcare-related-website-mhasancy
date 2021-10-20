@@ -12,7 +12,7 @@ const Login = () => {
   //auth context
   const auth = getAuth();
   //destructuring
-  const { googleSignIn, setUser, setError, setIsLoading, emailLogin } =
+  const { googleSignIn, setUser, setError, setIsLoading, emailLogin, error } =
     useAuth();
   //redirectUrl
   const location = useLocation();
@@ -20,7 +20,7 @@ const Login = () => {
   const redirectUrl = location.state?.from || "/";
 
   const handleGoogleLogin = () => {
-    googleSignIn().then((results) => {
+    googleSignIn().then(() => {
       history.push(redirectUrl);
     });
   };
@@ -33,14 +33,18 @@ const Login = () => {
   //use hook form
   const onSubmitData = (inputData) => {
     const { email, password } = inputData;
-    emailLogin(auth, email, password).then((results) => {
-      setIsLoading(true);
-      const userData = results.user;
-      setUser(userData);
-      history.push(redirectUrl);
-      setIsLoading(false);
-      setError("");
-    });
+    emailLogin(auth, email, password)
+      .then((results) => {
+        setIsLoading(true);
+        const userData = results.user;
+        setUser(userData);
+        history.push(redirectUrl);
+        setIsLoading(false);
+        setError("");
+      })
+      .catch(() => {
+        setError("Email or Password did not match.");
+      });
   };
 
   return (
@@ -73,6 +77,7 @@ const Login = () => {
             <p className="gradient-txt pt-1">Password field is required</p>
           )}
           <span>
+            {error && <p className="gradient-txt">{error}</p>}
             <input
               className="form-control rounded-pill btn btn-primary gradient-btn px-3 fw-bold"
               type="submit"

@@ -34,17 +34,11 @@ const useFirebase = () => {
   };
   //user creation
   const emailSignup = (auth, name, email, password) => {
-    return createUserWithEmailAndPassword(auth, name, email, password).catch(
-      (error) => {
-        setError(error.message);
-      }
-    );
+    return createUserWithEmailAndPassword(auth, name, email, password);
   };
   //email login
   const emailLogin = (auth, email, password) => {
-    return signInWithEmailAndPassword(auth, email, password).catch((error) => {
-      setError(error.message);
-    });
+    return signInWithEmailAndPassword(auth, email, password);
   };
   //logout
   const logOut = () => {

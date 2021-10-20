@@ -6,7 +6,7 @@ import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import useAuth from "../../../contexts/useAuth";
 const SignUp = () => {
-  const { googleSignIn, setError, setUser, setIsLoading, emailSignup } =
+  const { googleSignIn, setError, setUser, setIsLoading, emailSignup, error } =
     useAuth();
   const auth = getAuth();
 
@@ -26,18 +26,26 @@ const SignUp = () => {
   } = useForm();
   const onSubmitData = (inputData) => {
     const { name, email, password } = inputData;
-    emailSignup(auth, email, password).then((results) => {
-      setIsLoading(true);
-      const userData = results.user;
-      updateProfile(auth.currentUser, {
-        displayName: name,
-      });
-      setUser(userData);
-      setIsLoading(false);
-      setError("");
-      history.push(redirectUrl);
-      window.history.go(0);
-    });
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+    } else {
+      emailSignup(auth, email, password)
+        .then((results) => {
+          setIsLoading(true);
+          setError("");
+          const userData = results.user;
+          setUser(userData);
+          setIsLoading(false);
+          updateProfile(auth.currentUser, {
+            displayName: name,
+          });
+          history.push(redirectUrl);
+          window.history.go(0);
+        })
+        .catch(() => {
+          setError("User already exists, please login.");
+        });
+    }
   };
   return (
     <div className="row row-cols-1 h-100 row-cols-md-2 shadow container p-0 mx-auto my-5 radius-card gradient-bg bg-primary overflow-hidden">
@@ -93,7 +101,7 @@ const SignUp = () => {
             {errors.password && (
               <p className="gradient-txt pt-3">Password field is required</p>
             )}
-
+            {error && <p className="gradient-txt">{error}</p>}
             <input
               type="submit"
               value="Sign Up"
