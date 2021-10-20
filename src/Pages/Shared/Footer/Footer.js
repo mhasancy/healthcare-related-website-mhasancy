@@ -11,7 +11,7 @@ const Footer = () => {
         {/* short about */}
         <div className="col col-md-5">
           <h2 className="fw-bold fs-2 text-start ms-3 ps-4">
-            Floral Care Hospital
+            <span className="gradient-txt">Floral Care</span> Hospital
           </h2>
           <br />
           <h4 className="fw-light fs-4 text-start ms-4 ps-3 lh-base">
@@ -45,16 +45,16 @@ const Footer = () => {
             <br />
             Tel: +44 01234 567890 <br /> Fax: +44 025 7689 <br />
             <br />
-            Email: floralcare@ac.eng
+            Email: info@floralcare.ac.uk
             <br />
             visit:{" "}
             <a
               className="text-dark text-decoration-none"
-              href="http://www.opensourceeducation.ac.bd"
+              href="http://www.floralcare.ac.uk"
               target="_blank"
               rel="noreferrer"
             >
-              www.floralcare.ac.eng
+              www.floralcare.ac.uk
             </a>
           </h5>
         </div>

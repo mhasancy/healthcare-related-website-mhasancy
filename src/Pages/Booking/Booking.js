@@ -41,6 +41,14 @@ const Booking = () => {
           Home
         </button>
       </Link>
+
+      {matchedService && (
+        <a className="ms-2" href="mailto:info@floralcare.ac.uk">
+          <button className="btn btn-primary gradient-btn rounded-pill px-3 fw-bold">
+            Send Email
+          </button>
+        </a>
+      )}
     </div>
   );
 };

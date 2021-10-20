@@ -34,10 +34,12 @@ const useFirebase = () => {
   };
   //user creation
   const emailSignup = (auth, name, email, password) => {
+    setError("");
     return createUserWithEmailAndPassword(auth, name, email, password);
   };
   //email login
   const emailLogin = (auth, email, password) => {
+    setError("");
     return signInWithEmailAndPassword(auth, email, password);
   };
   //logout

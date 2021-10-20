@@ -42,8 +42,16 @@ const SignUp = () => {
           history.push(redirectUrl);
           window.history.go(0);
         })
-        .catch(() => {
-          setError("User already exists, please login.");
+        .catch((error) => {
+          if (
+            error.message === "Firebase: Error (auth/email-already-in-use)."
+          ) {
+            setError(
+              "Email already used, please log in or try again with a new email."
+            );
+          } else {
+            setError(error.message);
+          }
         });
     }
   };

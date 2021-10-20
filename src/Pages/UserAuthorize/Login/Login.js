@@ -42,8 +42,14 @@ const Login = () => {
         setIsLoading(false);
         setError("");
       })
-      .catch(() => {
-        setError("Email or Password did not match.");
+      .catch((error) => {
+        if (error.message === "Firebase: Error (auth/wrong-password).") {
+          setError("Wrong password, please try again or reset password.");
+        } else if (error.message === "Firebase: Error (auth/user-not-found).") {
+          setError("User not found, please signup.");
+        } else {
+          setError(error.message);
+        }
       });
   };
 
