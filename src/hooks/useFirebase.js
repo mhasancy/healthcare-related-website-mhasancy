@@ -24,6 +24,7 @@ const useFirebase = () => {
   const [passwordData, setPasswordData] = useState("");
   const [nameData, setNameData] = useState("");
   const [error, setError] = useState("");
+
   //googleSignIn
   const googleSignIn = () => {
     setIsLoading(true);
@@ -32,16 +33,19 @@ const useFirebase = () => {
       setIsLoading(false)
     );
   };
-  //user creation
+
+  //user creation with email
   const emailSignup = (auth, name, email, password) => {
     setError("");
     return createUserWithEmailAndPassword(auth, name, email, password);
   };
+
   //email login
   const emailLogin = (auth, email, password) => {
     setError("");
     return signInWithEmailAndPassword(auth, email, password);
   };
+
   //logout
   const logOut = () => {
     setIsLoading(true);
@@ -49,6 +53,7 @@ const useFirebase = () => {
       .then(() => {})
       .finally(() => setIsLoading(false));
   };
+
   //observer
   useEffect(() => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
@@ -61,23 +66,29 @@ const useFirebase = () => {
     });
     return () => unsubscribed;
   }, [auth]);
+
+  //set error handle empty
+  const errorDataClear = () => {
+    setError("");
+  };
   return {
     emailData,
     nameData,
     passwordData,
     isLoading,
     user,
+    error,
     setIsLoading,
     setEmailData,
     setPasswordData,
     setNameData,
     setUser,
-    error,
     setError,
     googleSignIn,
     logOut,
     emailLogin,
     emailSignup,
+    errorDataClear,
   };
 };
 export default useFirebase;

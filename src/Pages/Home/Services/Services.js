@@ -4,10 +4,10 @@ import Service from "../Service/Service";
 
 //services component
 const Services = () => {
-  //data set
+  //services data set
   const [servicesData, setServicesData] = useState([]);
 
-  //data load
+  //services data load hook
   useEffect(() => {
     fetch(
       "https://raw.githubusercontent.com/mhasancy/test/main/serviceData.json"

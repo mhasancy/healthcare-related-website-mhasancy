@@ -1,6 +1,5 @@
 //imported file
 import React from "react";
-import "./Banner.css";
 
 //banner component
 const Banner = () => {

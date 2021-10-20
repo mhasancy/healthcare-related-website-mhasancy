@@ -3,8 +3,11 @@ import React from "react";
 import { Redirect, Route } from "react-router";
 import useAuth from "../../../contexts/useAuth";
 
+//private route
 const PrivateRoute = ({ children, ...rest }) => {
+  //destructuring
   const { user, isLoading } = useAuth();
+  //isLoading condition
   if (isLoading) {
     return (
       <div className="text-center">

@@ -5,32 +5,40 @@ import { useForm } from "react-hook-form";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import useAuth from "../../../contexts/useAuth";
-import "./Login.css";
 
 //log in component
 const Login = () => {
   //auth context
   const auth = getAuth();
   //destructuring
-  const { googleSignIn, setUser, setError, setIsLoading, emailLogin, error } =
-    useAuth();
-  //redirectUrl
+  const {
+    googleSignIn,
+    setUser,
+    setError,
+    setIsLoading,
+    emailLogin,
+    error,
+    errorDataClear,
+  } = useAuth();
+  //location redirectUrl
   const location = useLocation();
   const history = useHistory();
   const redirectUrl = location.state?.from || "/";
-
+  //googleSignIn handle
   const handleGoogleLogin = () => {
     googleSignIn().then(() => {
       history.push(redirectUrl);
     });
   };
+
+  //use hook form
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  //use hook form
+  //use hook form and email SignIn with context
   const onSubmitData = (inputData) => {
     const { email, password } = inputData;
     emailLogin(auth, email, password)
@@ -107,6 +115,7 @@ const Login = () => {
         </h3>
         <p>
           <Link
+            onClick={errorDataClear}
             className="btn btn-light my-2 rounded-pill px-3 fw-bold"
             to="/signup"
           >

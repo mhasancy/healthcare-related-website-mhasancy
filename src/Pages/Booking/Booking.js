@@ -8,7 +8,7 @@ const Booking = () => {
   //dynamic route data set
   const { serviceId } = useParams();
   const [servicesData, setServicesData] = useState([]);
-  //dynamic route data load
+  //dynamic route data load hook
   useEffect(() => {
     fetch(
       "https://raw.githubusercontent.com/mhasancy/test/main/serviceData.json"

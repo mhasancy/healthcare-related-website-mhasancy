@@ -5,25 +5,40 @@ import { useForm } from "react-hook-form";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import useAuth from "../../../contexts/useAuth";
-const SignUp = () => {
-  const { googleSignIn, setError, setUser, setIsLoading, emailSignup, error } =
-    useAuth();
-  const auth = getAuth();
 
+//signup component
+const SignUp = () => {
+  //destructuring
+  const {
+    googleSignIn,
+    setError,
+    setUser,
+    setIsLoading,
+    emailSignup,
+    error,
+    errorDataClear,
+  } = useAuth();
+  //auth context
+  const auth = getAuth();
+  //location redirectUrl
   const location = useLocation();
   const history = useHistory();
   const redirectUrl = location.state?.from || "/";
-
-  const handleLogin = () => {
+  //googleSignIn handle with context
+  const handleGoogleLogin = () => {
     googleSignIn().then(() => {
       history.push(redirectUrl);
     });
   };
+  //use hook form
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  //use hook form and emailSignup with context
+
   const onSubmitData = (inputData) => {
     const { name, email, password } = inputData;
     if (password.length < 6) {
@@ -58,12 +73,13 @@ const SignUp = () => {
   return (
     <div className="row row-cols-1 h-100 row-cols-md-2 shadow container p-0 mx-auto my-5 radius-card gradient-bg bg-primary overflow-hidden">
       <div className="col col-md-5 row g-0 justify-content-center align-items-center my-3">
-        <h2 className="fw-bold fs-2 text-white">Welcome Back!!</h2>
+        <h2 className="fw-bold fs-2 text-white">Welcome Back !</h2>
         <h3 className="fw-light w-75 fs-3 text-white">
           Please login with your personal details to connected with us!!
         </h3>
         <p>
           <Link
+            onClick={errorDataClear}
             className="btn btn-light my-2 rounded-pill px-3 fw-bold"
             to="/login"
           >
@@ -118,7 +134,7 @@ const SignUp = () => {
           </form>
           <button
             className="btn btn-primary rounded-pill px-3 gradient-btn fw-bold"
-            onClick={handleLogin}
+            onClick={handleGoogleLogin}
           >
             <i className="fab fa-google"></i> SignUp with Google
           </button>
