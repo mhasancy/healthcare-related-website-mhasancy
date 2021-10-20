@@ -13,6 +13,15 @@ const SignUp = () => {
   const { googleSignIn, setError, setUser, setIsLoading } = useAuth();
   const auth = getAuth();
 
+  const location = useLocation();
+  const history = useHistory();
+  const redirectUrl = location.state?.from || "/";
+
+  const handleLogin = () => {
+    googleSignIn().then(() => {
+      history.push(redirectUrl);
+    });
+  };
   const {
     register,
     handleSubmit,
@@ -23,12 +32,13 @@ const SignUp = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((results) => {
         setIsLoading(true);
+        history.push(redirectUrl);
+        window.history.go(0);
         const userData = results.user;
         updateProfile(auth.currentUser, {
           displayName: name,
         });
         setUser(userData);
-        // setIsLoading(false);
         setIsLoading(false);
         setError("");
       })
@@ -36,64 +46,73 @@ const SignUp = () => {
         setError(error.message);
       });
   };
-  const location = useLocation();
-  const history = useHistory();
-  const redirectUrl = location.state?.from || "/";
-  const handleLogin = () => {
-    googleSignIn().then((results) => {
-      history.push(redirectUrl);
-    });
-  };
   return (
-    <div className="container w-md-50">
-      <h1 className="fw-bold text-center ms-md-4 p-md-2 mx-auto my-5">
-        Please
-        <span className="text-primary"> SignUp</span>.
-      </h1>
-      <form className="form my-3" onSubmit={handleSubmit(onSubmitData)}>
-        <input
-          placeholder="Your Name"
-          className="form-control my-2"
-          type="text"
-          {...register("name", { required: true })}
-        />
-        {errors.name && <p className="text-primary">Name field is required</p>}
+    <div className="row row-cols-1 h-100 row-cols-md-2 shadow container p-0 mx-auto my-5 radius-card gradient-bg bg-primary overflow-hidden">
+      <div className="col col-md-5 row g-0 justify-content-center align-items-center my-3">
+        <h2 className="fw-bold fs-2 text-white">Welcome Back!!</h2>
+        <h3 className="fw-light w-75 fs-3 text-white">
+          Please login with your personal details to connected with us!!
+        </h3>
+        <p>
+          <Link className="btn btn-light my-2 rounded-pill px-3" to="/login">
+            Log In
+          </Link>
+        </p>
+      </div>
+      <div className="col col-md-7 bg-white py-4">
+        <div className="container">
+          <h2 className="fw-bold text-center ms-md-4 p-md-2 mx-auto my-5">
+            Create
+            <span className="gradient-txt"> Account</span>
+          </h2>
+          <form className="form my-3" onSubmit={handleSubmit(onSubmitData)}>
+            <input
+              placeholder="Your Name"
+              className="form-control rounded-pill my-2"
+              type="text"
+              {...register("name", { required: true })}
+            />
+            {errors.name && (
+              <p className="gradient-txt">Name field is required</p>
+            )}
 
-        <input
-          placeholder="Your Email"
-          className="form-control my-2"
-          type="email"
-          {...register("email", { required: true })}
-        />
+            <input
+              placeholder="Your Email"
+              className="form-control rounded-pill my-2"
+              type="email"
+              {...register("email", { required: true })}
+            />
 
-        {errors.email && (
-          <p className="text-primary">Email field is required</p>
-        )}
+            {errors.email && (
+              <p className="gradient-txt">Email field is required</p>
+            )}
 
-        <input
-          placeholder="Your Password"
-          className="form-control my-2"
-          type="password"
-          {...register("password", { required: true })}
-        />
+            <input
+              placeholder="Your Password"
+              className="form-control rounded-pill my-2"
+              type="password"
+              {...register("password", { required: true })}
+            />
 
-        {errors.password && (
-          <p className="text-primary pt-3">Password field is required</p>
-        )}
+            {errors.password && (
+              <p className="gradient-txt pt-3">Password field is required</p>
+            )}
 
-        <input
-          type="submit"
-          value="Sign Up"
-          className="form-control btn btn-primary"
-        />
-      </form>
-      <button className="btn btn-secondary" onClick={handleLogin}>
-        <i className="fab fa-google"></i> SignUp with Google
-      </button>
-      <br />
-      <Link className="btn btn-secondary my-2" to="/login">
-        Already Registered
-      </Link>
+            <input
+              type="submit"
+              value="Sign Up"
+              className="form-control rounded-pill btn btn-primary gradient-btn rounded-pill px-3"
+            />
+          </form>
+          <button
+            className="btn btn-primary rounded-pill px-3 gradient-btn"
+            onClick={handleLogin}
+          >
+            <i className="fab fa-google"></i> SignUp with Google
+          </button>
+          <br />
+        </div>
+      </div>
     </div>
   );
 };

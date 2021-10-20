@@ -8,9 +8,9 @@ const Navbar = () => {
   const { user, logOut } = useAuth();
 
   return (
-    <nav className="sticky-top navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="sticky-top navbar navbar-expand-lg navbar-light bg-light fw-bold">
       <div className="container">
-        <NavLink className="navbar-brand fs-1 fw-bold text-primary" to="/">
+        <NavLink className="navbar-brand fs-1 fw-bold gradient-txt" to="/">
           Floral Care
         </NavLink>
         <button

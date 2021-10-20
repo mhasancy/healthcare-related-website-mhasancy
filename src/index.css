@@ -14,3 +14,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.gradient-bg {
+  background: rgb(0, 206, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 206, 255, 0.5494572829131652) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  border: none;
+}
+.gradient-btn {
+  background: rgb(0, 206, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 206, 255, 0.5494572829131652) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  border: none;
+}
+.gradient-txt {
+  color: rgb(0, 206, 255);
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(0, 206, 255, 0.5494572829131652) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.radius-card {
+  border-radius: 15px;
+}
+.border-card {
+  border: 1px solid rgba(128, 128, 128, 0.123);
+}
+
+#hover-card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: opacity 0.3s ease-in-out;
+}

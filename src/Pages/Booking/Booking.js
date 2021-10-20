@@ -21,15 +21,24 @@ const Booking = () => {
     (serviceData) => serviceData?.id === serviceId
   );
   return (
-    <div className="container">
-      <h1 className="fw-bold text-center ms-md-4 p-md-2 mx-auto my-5">
+    <div className="container shadow radius-card py-1 my-5 py-5">
+      <h1 className="fw-bold text-center ms-md-4 p-md-2 mx-auto">
         Book Your
-        <span className="text-primary"> Service</span>.
+        <span className="gradient-txt"> Service</span>.
       </h1>
       <h2 className="fw-bold fs-2">{matchedService?.title}</h2>
-      <h4 className="fw-light lh-base">{matchedService?.description}</h4>
+      <h4 className="fw-light lh-base py-3 px-4 text-start">
+        {matchedService?.description}
+      </h4>
+      {!matchedService && (
+        <h4 className="fw-light py-3">
+          Please click book now and find a service and then click book now.
+        </h4>
+      )}
       <Link to="/">
-        <button className="btn btn-primary">Book Now</button>
+        <button className="btn btn-primary gradient-btn rounded-pill px-3">
+          <i className="far fa-bookmark"></i> Book Now
+        </button>
       </Link>
     </div>
   );

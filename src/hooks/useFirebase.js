@@ -1,8 +1,10 @@
 //imported file
 import {
+  createUserWithEmailAndPassword,
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
@@ -29,6 +31,20 @@ const useFirebase = () => {
     return signInWithPopup(auth, googleProvider).finally(() =>
       setIsLoading(false)
     );
+  };
+  //user creation
+  const emailSignup = (auth, name, email, password) => {
+    return createUserWithEmailAndPassword(auth, name, email, password).catch(
+      (error) => {
+        setError(error.message);
+      }
+    );
+  };
+  //email login
+  const emailLogin = (auth, email, password) => {
+    return signInWithEmailAndPassword(auth, email, password).catch((error) => {
+      setError(error.message);
+    });
   };
   //logout
   const logOut = () => {
@@ -64,6 +80,8 @@ const useFirebase = () => {
     setError,
     googleSignIn,
     logOut,
+    emailLogin,
+    emailSignup,
   };
 };
 export default useFirebase;

@@ -4,12 +4,12 @@ import React from "react";
 //research component
 const Research = () => {
   return (
-    <div className="container">
-      <h1 className="fw-bold text-center ms-md-4 p-md-2  my-5">
+    <div className="container shadow radius-card py-1 my-5 py-5">
+      <h1 className="fw-bold text-center ms-md-4 p-md-2 ">
         Know Our
-        <span className="text-primary"> Research</span>.
+        <span className="gradient-txt"> Research</span>.
       </h1>
-      <div className="container w-75">
+      <div className="container">
         <h2 className="fw-bold fs-2">
           World-class clinical care, teaching and research
         </h2>
@@ -29,7 +29,7 @@ const Research = () => {
       <hr />
       <div className="row row-cols-1 row-cols-md-3 mx-auto g-4 my-4">
         <div className="col">
-          <div className="card h-100 ">
+          <div className="card border-card h-100 ">
             <div className="card-body">
               <h5 className="card-title">Leaders in patient care</h5>
               <p className="card-text">
@@ -38,8 +38,8 @@ const Research = () => {
             </div>
           </div>
         </div>
-        <div className="col">
-          <div className="card h-100">
+        <div className="col ">
+          <div className="card border-card h-100">
             <div className="card-body">
               <h5 className="card-title">Research and education</h5>
               <p className="card-text">
@@ -49,7 +49,7 @@ const Research = () => {
           </div>
         </div>
         <div className="col">
-          <div className="card h-100">
+          <div className="card border-card h-100">
             <div className="card-body">
               <h5 className="card-title">Learning from experts</h5>
               <p className="card-text">

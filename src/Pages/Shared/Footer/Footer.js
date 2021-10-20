@@ -10,36 +10,36 @@ const Footer = () => {
       <div className="row">
         {/* short about */}
         <div className="col col-md-5">
-          <h1 className="fw-bold fs-2 text-start ms-3 ps-4">
+          <h2 className="fw-bold fs-2 text-start ms-3 ps-4">
             Floral Care Hospital
-          </h1>
+          </h2>
           <br />
-          <h3 className="fw-normal fs-6 text-left ms-4 ps-3 lh-base w-75">
+          <h4 className="fw-light fs-4 text-start ms-4 ps-3 lh-base">
             Floral Care is an specializes hospital in England. We provide great
             care for our people through our community Services. Make yourself
             comfortable to take out services on demand. And be always aware of
             your health and safety.
-          </h3>
+          </h4>
           <div className="flex g-4 d-flex justify-content-start ps-3 pt-4 pb-4">
             <a href="https://developer.mozilla.org/">
-              <i className="fab fa-twitter-square fs-2 ms-4 text-dark"></i>
+              <i className="fab gradient-txt fa-twitter-square fs-2 ms-4 text-dark"></i>
             </a>
             <a href="https://developer.mozilla.org/">
-              <i className="fab fa-facebook-square fs-2 ms-5 text-dark"></i>
+              <i className="fab gradient-txt fa-facebook-square fs-2 ms-5 text-dark"></i>
             </a>
             <a href="https://developer.mozilla.org/">
-              <i className="fab fa-linkedin fs-2 ms-5 text-dark"></i>
+              <i className="fab gradient-txt fa-linkedin fs-2 ms-5 text-dark"></i>
             </a>
             <a href="https://developer.mozilla.org/">
-              <i className="fab fa-youtube fs-2 ms-5 text-dark"></i>
+              <i className="fab gradient-txt fa-youtube fs-2 ms-5 text-dark"></i>
             </a>
           </div>
         </div>
         {/* address */}
         <div className="col col-md-4">
-          <h1 className="fw-bold fs-2 text-start ms-3 ps-4">Contact</h1>
+          <h2 className="fw-bold fs-2 text-start ms-3 ps-4">Contact</h2>
           <br />
-          <h3 className="fw-normal fs-6 text-left ms-4 ps-3 lh-base w-75">
+          <h5 className="fw-normal fs-5 text-start ms-4 ps-3 lh-base w-75">
             23/2, Aston Villa, <br />
             England. <br />
             <br />
@@ -56,13 +56,13 @@ const Footer = () => {
             >
               www.floralcare.ac.eng
             </a>
-          </h3>
+          </h5>
         </div>
         {/* useful links */}
         <div className="col col-md-3">
-          <h1 className="fw-bold fs-2 text-start ms-3 ps-4">Pages</h1>
+          <h2 className="fw-bold fs-2 text-start ms-3 ps-4">Pages</h2>
           <br />
-          <ul className="fs-6 text-start ms-4 ps-3 lh-base w-75 list-unstyled">
+          <ul className="fs-5 text-start ms-4 ps-3 lh-base w-75 list-unstyled">
             <li className="">
               <NavLink
                 className="active text-dark text-decoration-none"

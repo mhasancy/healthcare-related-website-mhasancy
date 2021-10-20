@@ -1,17 +1,19 @@
 //imported file
-import { getAuth, signInWithEmailAndPassword } from "@firebase/auth";
+import { getAuth } from "@firebase/auth";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import useAuth from "../../../contexts/useAuth";
+import "./Login.css";
 
 //log in component
 const Login = () => {
   //auth context
   const auth = getAuth();
   //destructuring
-  const { googleSignIn, setUser, setError, setIsLoading } = useAuth();
+  const { googleSignIn, setUser, setError, setIsLoading, emailLogin } =
+    useAuth();
   //redirectUrl
   const location = useLocation();
   const history = useHistory();
@@ -31,62 +33,73 @@ const Login = () => {
   //use hook form
   const onSubmitData = (inputData) => {
     const { email, password } = inputData;
-    signInWithEmailAndPassword(auth, email, password)
-      .then((results) => {
-        history.push(redirectUrl);
-      })
-      .then((results) => {
-        setIsLoading(true);
-        const userData = results.user;
-        setUser(userData);
-        setIsLoading(false);
-        setError("");
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
+    emailLogin(auth, email, password).then((results) => {
+      setIsLoading(true);
+      const userData = results.user;
+      setUser(userData);
+      history.push(redirectUrl);
+      setIsLoading(false);
+      setError("");
+    });
   };
 
   return (
-    <div className="container w-md-50">
-      <h1 className="fw-bold text-center ms-md-4 p-md-2 mx-auto my-5">
-        Please
-        <span className="text-primary"> Login</span>.
-      </h1>
-      <form className="form my-3" onSubmit={handleSubmit(onSubmitData)}>
-        <input
-          placeholder="Your Email"
-          className="form-control my-2"
-          type="email"
-          {...register("email", { required: true })}
-        />
-        {errors.email && (
-          <p className="text-primary pt-1">Email field is required</p>
-        )}
-        <input
-          placeholder="Your Password"
-          className="form-control my-2"
-          type="password"
-          {...register("password", { required: true })}
-        />
-        {errors.password && (
-          <p className="text-primary pt-1">Password field is required</p>
-        )}
-        <span>
+    <div className="row row-cols-1 h-100 row-cols-md-2 p-0 shadow gradient-bg bg-primary container mx-auto my-5 radius-card overflow-hidden">
+      <div className="col col-md-7 container bg-white py-4">
+        <h2 className="fw-bold text-center ms-md-4 p-md-2 mx-auto my-5">
+          Please
+          <span className="gradient-txt"> Login</span>
+        </h2>
+        <form
+          className="form my-3 mx-auto px-4 "
+          onSubmit={handleSubmit(onSubmitData)}
+        >
           <input
-            className="form-control btn btn-primary"
-            type="submit"
-            value="Login"
+            placeholder="Your Email"
+            className="form-control rounded-pill my-2 rounded-pill"
+            type="email"
+            {...register("email", { required: true })}
           />
-        </span>
-      </form>
-      <button className="btn btn-secondary" onClick={handleGoogleLogin}>
-        <i className="fab fa-google"></i> Login with Google
-      </button>
-      <br />
-      <Link className="btn btn-secondary my-2" to="/signup">
-        New to Site?
-      </Link>
+          {errors.email && (
+            <p className="gradient-txt pt-1">Email field is required</p>
+          )}
+          <input
+            placeholder="Your Password"
+            className="form-control rounded-pill my-2 rounded-pill"
+            type="password"
+            {...register("password", { required: true })}
+          />
+          {errors.password && (
+            <p className="gradient-txt pt-1">Password field is required</p>
+          )}
+          <span>
+            <input
+              className="form-control rounded-pill btn btn-primary gradient-btn px-3 gradient-btn rounded-pill"
+              type="submit"
+              value="Login"
+            />
+          </span>
+        </form>
+        <button
+          className="rounded-pill btn btn-primary gradient-btn "
+          onClick={handleGoogleLogin}
+        >
+          <i className="fab fa-google"></i> Login with Google
+        </button>
+        <br />
+      </div>
+
+      <div className="col col-md-5 row g-0 justify-content-center align-items-center my-4">
+        <h2 className="fw-bold fs-2 text-white">Hello Friend!!</h2>
+        <h3 className="fw-light w-75 fs-3 text-white">
+          Please signup with your personal details to start journey with us!!
+        </h3>
+        <p>
+          <Link className="btn btn-light my-2 rounded-pill px-3" to="/signup">
+            Sign Up
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };

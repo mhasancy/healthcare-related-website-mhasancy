@@ -4,12 +4,12 @@ import React from "react";
 //about component
 const About = () => {
   return (
-    <div className="container">
+    <div className="container shadow radius-card py-1 my-5">
       <h1 className="fw-bold text-center ms-md-4 p-md-2  my-5">
         Who We
-        <span className="text-primary"> Are</span>.
+        <span className="gradient-txt"> Are</span>.
       </h1>
-      <h4 className="fw-light lh-base">
+      <h4 className="fw-light lh-base text-start px-5 pb-5 ">
         At Floral Care We’re here to help you get better, feel better, and stay
         better. We believe movement matters. We’ve made it our mission to
         support all kinds of movement: for every body, at every stage. Movement
