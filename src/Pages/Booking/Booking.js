@@ -31,13 +31,14 @@ const Booking = () => {
         {matchedService?.description}
       </h4>
       {!matchedService && (
-        <h4 className="fw-light py-3">
-          Please click book now and find a service and then click book now.
+        <h4 className="fw-light pb-3">
+          Please click home and find a service and then click on respective book
+          now .
         </h4>
       )}
       <Link to="/">
-        <button className="btn btn-primary gradient-btn rounded-pill px-3">
-          <i className="far fa-bookmark"></i> Book Now
+        <button className="btn btn-primary gradient-btn rounded-pill px-3 fw-bold">
+          Home
         </button>
       </Link>
     </div>

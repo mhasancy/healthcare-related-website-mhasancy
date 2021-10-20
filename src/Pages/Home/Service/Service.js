@@ -7,7 +7,7 @@ const Service = ({ serviceData }) => {
   //destructuring
   const { id, title, intro, image } = serviceData;
   return (
-    <div className="col container">
+    <div className="col container" id="services">
       <div
         className="card border-card h-100 radius-card overflow-hidden"
         id="hover-card"

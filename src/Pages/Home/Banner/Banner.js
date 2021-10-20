@@ -16,9 +16,12 @@ const Banner = () => {
           using less medicine with revolutionary <br /> drug-food interactions.
         </h4>
         <span className="text-start ">
-          <button className="btn btn-primary fw-bold gradient-btn rounded-pill px-3 mt-3">
+          <a
+            href="#services"
+            className="btn btn-primary fw-bold gradient-btn rounded-pill px-3 mt-3"
+          >
             <i className="far fa-bookmark"></i> Book Now
-          </button>
+          </a>
         </span>
       </div>
     </div>

@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 //404 component
 const NotFound = () => {
   return (
-    <div className="container-fluid">
+    <div className="container shadow radius-card my-5 py-5 ">
       <h1 className="font-bold" style={{ fontSize: "200px" }}>
         404
       </h1>

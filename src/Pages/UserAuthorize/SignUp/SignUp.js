@@ -1,16 +1,13 @@
 //imported file
-import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  updateProfile,
-} from "@firebase/auth";
+import { getAuth, updateProfile } from "@firebase/auth";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import useAuth from "../../../contexts/useAuth";
 const SignUp = () => {
-  const { googleSignIn, setError, setUser, setIsLoading } = useAuth();
+  const { googleSignIn, setError, setUser, setIsLoading, emailSignup } =
+    useAuth();
   const auth = getAuth();
 
   const location = useLocation();
@@ -29,22 +26,18 @@ const SignUp = () => {
   } = useForm();
   const onSubmitData = (inputData) => {
     const { name, email, password } = inputData;
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((results) => {
-        setIsLoading(true);
-        history.push(redirectUrl);
-        window.history.go(0);
-        const userData = results.user;
-        updateProfile(auth.currentUser, {
-          displayName: name,
-        });
-        setUser(userData);
-        setIsLoading(false);
-        setError("");
-      })
-      .catch((error) => {
-        setError(error.message);
+    emailSignup(auth, email, password).then((results) => {
+      setIsLoading(true);
+      const userData = results.user;
+      updateProfile(auth.currentUser, {
+        displayName: name,
       });
+      setUser(userData);
+      setIsLoading(false);
+      setError("");
+      history.push(redirectUrl);
+      window.history.go(0);
+    });
   };
   return (
     <div className="row row-cols-1 h-100 row-cols-md-2 shadow container p-0 mx-auto my-5 radius-card gradient-bg bg-primary overflow-hidden">
@@ -54,7 +47,10 @@ const SignUp = () => {
           Please login with your personal details to connected with us!!
         </h3>
         <p>
-          <Link className="btn btn-light my-2 rounded-pill px-3" to="/login">
+          <Link
+            className="btn btn-light my-2 rounded-pill px-3 fw-bold"
+            to="/login"
+          >
             Log In
           </Link>
         </p>
@@ -101,11 +97,11 @@ const SignUp = () => {
             <input
               type="submit"
               value="Sign Up"
-              className="form-control rounded-pill btn btn-primary gradient-btn rounded-pill px-3"
+              className="form-control rounded-pill btn btn-primary gradient-btn fw-bold px-3"
             />
           </form>
           <button
-            className="btn btn-primary rounded-pill px-3 gradient-btn"
+            className="btn btn-primary rounded-pill px-3 gradient-btn fw-bold"
             onClick={handleLogin}
           >
             <i className="fab fa-google"></i> SignUp with Google

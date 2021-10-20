@@ -74,14 +74,14 @@ const Login = () => {
           )}
           <span>
             <input
-              className="form-control rounded-pill btn btn-primary gradient-btn px-3 gradient-btn rounded-pill"
+              className="form-control rounded-pill btn btn-primary gradient-btn px-3 fw-bold"
               type="submit"
               value="Login"
             />
           </span>
         </form>
         <button
-          className="rounded-pill btn btn-primary gradient-btn "
+          className="rounded-pill btn btn-primary gradient-btn fw-bold"
           onClick={handleGoogleLogin}
         >
           <i className="fab fa-google"></i> Login with Google
@@ -90,12 +90,15 @@ const Login = () => {
       </div>
 
       <div className="col col-md-5 row g-0 justify-content-center align-items-center my-4">
-        <h2 className="fw-bold fs-2 text-white">Hello Friend!!</h2>
+        <h2 className="fw-bold fs-2 text-white">Hello Friend !</h2>
         <h3 className="fw-light w-75 fs-3 text-white">
           Please signup with your personal details to start journey with us!!
         </h3>
         <p>
-          <Link className="btn btn-light my-2 rounded-pill px-3" to="/signup">
+          <Link
+            className="btn btn-light my-2 rounded-pill px-3 fw-bold"
+            to="/signup"
+          >
             Sign Up
           </Link>
         </p>
